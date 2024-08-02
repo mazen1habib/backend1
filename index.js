@@ -19,9 +19,7 @@ app.use(cors());
 app.use(cookieParser());
 
 mongoose
-  .connect(
-    "mongodb+srv://mazenhabeb1:IaoAloNUWMt7MKXr@cluster0.enr3rdd.mongodb.net/restaurant?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.DB)
   .then(() => console.log("DB is connected"))
   .catch((err) => console.log(err));
 app.use(express.static(path.join(__dirname, "/")));
