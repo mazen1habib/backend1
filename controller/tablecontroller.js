@@ -85,7 +85,8 @@ let getallorder = async (req, res) => {
 };
 let getallorderinsameuser = async (req, res) => {
   try {
-    let userDate = await getUserDateFromToken(req);
+    let token = await req.params.id;
+    let userDate = await alltoken(token);
     let alldata = await placetableorder.find({ userId: userDate._id });
     responce(res, 200, responsemsgs.SUCCESS, alldata, null);
   } catch (er) {

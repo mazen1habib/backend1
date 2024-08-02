@@ -6,7 +6,7 @@ router
   .route("/placetable/:id")
   .post(tablevalidation(), tablecontroller.addordertable);
 router.route("/table").get(tablecontroller.getallorder);
-router.route("/allTable").get(tablecontroller.getallorderinsameuser);
+router.route("/allTable/:id").get(tablecontroller.getallorderinsameuser);
 router
   .route("/placetable/:id")
   .get(tablecontroller.singleorder)
