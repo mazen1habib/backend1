@@ -13,5 +13,5 @@ router
   .post(usercontroller.restPasswordCode);
 router.route("/user/login").post(authValidation(), usercontroller.userlogin);
 router.route("/user/newpassword").post(usercontroller.restPasswordvild);
-router.route("/user/profile").get(usercontroller.profile);
+router.route("/user/profile/:id").get(usercontroller.profile);
 module.exports = router;

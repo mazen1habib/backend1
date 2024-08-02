@@ -5,6 +5,7 @@ const responce = require("../utilities/httpresponemsg.js");
 const { validationResult } = require("express-validator");
 const signJwt = require("../utilities/signJWT.js");
 const getUserDateFromToken = require("../utilities/getUserDateFromToken.js");
+const alltoken = require("../utilities/alltoken.js");
 let adduser = async (req, res) => {
   try {
     let val = await validationResult(req).errors;
@@ -212,7 +213,8 @@ let getalluser = async (req, res) => {
 };
 let profile = async (req, res) => {
   try {
-    let userDate = await getUserDateFromToken(req);
+    let token = await req.params.id;
+    let userDate = await alltoken(token);
     let checkuser = await user.findOne({ _id: userDate._id });
     if (!checkuser) {
       throw "user not found";

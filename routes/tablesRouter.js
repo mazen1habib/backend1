@@ -3,7 +3,7 @@ const tablevalidation = require("../middleware/validations/ordertablevalidation.
 const express = require("express");
 const router = express.Router();
 router
-  .route("/placetable")
+  .route("/placetable/:id")
   .post(tablevalidation(), tablecontroller.addordertable);
 router.route("/table").get(tablecontroller.getallorder);
 router.route("/allTable").get(tablecontroller.getallorderinsameuser);
